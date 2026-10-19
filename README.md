@@ -195,5 +195,5 @@ fazer funcionar quando a fonte muda, o modelo erra e o dado chega sujo.
 
 ## Autor
 
-José Vitor Santos Pinheiro — Análise de Dados e Inteligência Comercial (Varejo e Supply Chain).
+José Vitor Santos Pinheiro — Análise de Dados e Inteligência Comercial (Varejo, Indústria e Distribuição).
 Contato: vytorsantt@gmail.com
