@@ -197,3 +197,34 @@ fazer funcionar quando a fonte muda, o modelo erra e o dado chega sujo.
 
 José Vitor Santos Pinheiro — Análise de Dados e Inteligência Comercial (Varejo, Indústria e Distribuição).
 Contato: vytorsantt@gmail.com
+
+## 🗺️ Modelo de Dados (DER)
+
+Modelo relacional (3FN) do banco de inteligência de preços (MySQL). Renderizado pelo GitHub via Mermaid. *Dados fictícios de demonstração.*
+
+```mermaid
+erDiagram
+    dim_produto ||--o{ fato_preco : "dimensiona"
+    dim_loja ||--o{ fato_preco : "dimensiona"
+
+    dim_produto {
+        int pk_produto PK
+        varchar nome_produto UK
+        char ean "validado por validar_ean()"
+    }
+    dim_loja {
+        int pk_loja PK
+        varchar nome_loja UK
+        enum tipo "propria|concorrente"
+    }
+    fato_preco {
+        bigint pk_preco PK
+        int fk_produto FK
+        int fk_loja FK
+        date data_coleta
+        decimal preco
+        boolean em_oferta
+    }
+```
+
+**Grão:** produto × loja × data (uma coleta/dia). A view `vw_comparativo_precos` calcula o menor preço do dia por produto com *window function*.
